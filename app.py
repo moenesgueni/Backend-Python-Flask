@@ -19,7 +19,7 @@ class Book(db.Model):
 class BookSchema(Schema):
     title = fields.Str(required=True, validate=lambda x: len(x) > 1 and len(x) <= 50)
     author = fields.Str(required=True, validate=lambda x: len(x) > 1 and len(x) <= 50)
-    year = fields.Int(validate=lambda x: 1000 <= x <= 9999, required=False)
+    year = fields.Int(validate=lambda x: -1000 <= x <= 9999, required=False)
     isbn = fields.Str(validate=lambda x: len(x) >= 10 and len(x) <= 14, required=True)
 
 book_schema = BookSchema()
